@@ -4,11 +4,17 @@ let voice = document.querySelector("#voice")
 
 function speak(text) {
     let text_speak = new SpeechSynthesisUtterance(text)
-    text_speak.rate = 1.5
-    text_speak.pitch = 4
-    text_speak.volume = 2
-    text_speak.lang = "en-US git"
-    window.speechSynthesis.speak(text_speak)
+    speechSynthesis.addEventListener("voiceschanged", () => {
+        const voices = speechSynthesis.getVoices()
+        console.log(voices);
+        text_speak.rate = 1
+        text_speak.voice = voices[6];
+        text_speak.pitch = 1
+        text_speak.volume = 1
+        text_speak.lang = "en-US"
+        window.speechSynthesis.speak(text_speak)
+    })
+
 
 }
 
@@ -40,7 +46,7 @@ recognition.onresult = (event) => {
     let currentIndex = event.resultIndex
     let transcript = event.results[currentIndex][0].transcript
     content.innerText = transcript
-        // console.log(event)
+    // console.log(event)
     takeCommand(transcript.toLowerCase())
 
 }
