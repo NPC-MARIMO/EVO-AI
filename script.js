@@ -32,9 +32,9 @@ function wishMe() {
     }
 
 }
-// window.addEventListener('load', () => {
-//     wishMe()
-// })
+window.addEventListener('load', () => {
+    wishMe()
+})
 
 
 
