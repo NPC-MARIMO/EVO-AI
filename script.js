@@ -4,10 +4,10 @@ let voice = document.querySelector("#voice")
 
 function speak(text) {
     let text_speak = new SpeechSynthesisUtterance(text)
-    text_speak.rate = 1
-    text_speak.pitch = 1
-    text_speak.volume = 1
-    text_speak.lang = "hi-GB"
+    text_speak.rate = 1.5
+    text_speak.pitch = 4
+    text_speak.volume = 2
+    text_speak.lang = "en-US git"
     window.speechSynthesis.speak(text_speak)
 
 }
@@ -58,7 +58,7 @@ function takeCommand(message) {
     btn.style.display = "flex"
     voice.style.display = "none"
     if (message.includes('hello') || message.includes('hi') || message.includes('hey')) {
-        speak("Hello Dear, How may I help you")
+        speak("Hello , How may I help you")
     } else if (message.includes('who are you') || message.includes('hu r u')) {
         speak("I am Shifra, Virtual babu, created by Evolving Team member engineer Dharmendra Singh")
     } else if (message.includes('time')) {
